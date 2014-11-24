@@ -1,0 +1,6 @@
+CLine/clientConfig.json
+Pods
+**/.DS_Store
+**/xcuserdata
+*/project.xcworkspace
+build
