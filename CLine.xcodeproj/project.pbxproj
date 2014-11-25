@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0756EB97A97EE935DF0E5315 /* libPods-CLine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4BB9EF28CB8A9EDE79EE1F /* libPods-CLine.a */; };
+		2C272C651A24368E00EAFD82 /* Input.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C272C641A24368E00EAFD82 /* Input.m */; };
 		2C88E9781A22174C000D1D9A /* authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E9771A22174C000D1D9A /* authentication.swift */; };
 		2CF7D2F51A22009E00A11C21 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7D2F41A22009E00A11C21 /* main.swift */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2C272C641A24368E00EAFD82 /* Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Input.m; sourceTree = "<group>"; };
 		2C88E9771A22174C000D1D9A /* authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authentication.swift; sourceTree = "<group>"; };
 		2CF7D2F11A22009E00A11C21 /* CLine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CLine; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF7D2F41A22009E00A11C21 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				2CF7D2FC1A220B2300A11C21 /* clientConfig.json */,
 				2CF7D2F41A22009E00A11C21 /* main.swift */,
 				2C88E9771A22174C000D1D9A /* authentication.swift */,
+				2C272C641A24368E00EAFD82 /* Input.m */,
 			);
 			path = CLine;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C272C651A24368E00EAFD82 /* Input.m in Sources */,
 				2CF7D2F51A22009E00A11C21 /* main.swift in Sources */,
 				2C88E9781A22174C000D1D9A /* authentication.swift in Sources */,
 			);
@@ -273,7 +277,23 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DDB589560DC00178D629A45F /* Pods-CLine.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-CLine-GCDWebServer\"",
+					"-l\"Pods-CLine-NXOAuth2Client\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-ledit",
+					"-ltermcap",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = CLine/BridgingHeader.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -281,7 +301,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4364E4BAEB7BDDC5A12CC79D /* Pods-CLine.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-CLine-GCDWebServer\"",
+					"-l\"Pods-CLine-NXOAuth2Client\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-ledit",
+					"-ltermcap",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = CLine/BridgingHeader.h;
 			};
 			name = Release;
 		};
