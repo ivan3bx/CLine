@@ -25,6 +25,22 @@ class Main {
         if (!auth.isAuthorized()) {
             auth.authenticate()
         }
+        
+        let prompt: Input = Input()
+        
+        var line: String = prompt.read()
+        while (!line.isEmpty) {
+            processCommand(line)
+            line = prompt.read()
+        }
+        
+        // No more input
+        println("\nExiting.")
+        RunState.isRunning = false
+    }
+    
+    func processCommand(line: String) {
+        println("I was given: \(line)")
     }
 }
 

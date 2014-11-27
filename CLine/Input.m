@@ -7,12 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <histedit.h>
-
-@interface Input : NSObject {
-    EditLine* _editLine;
-}
-@end
+#import "Input.h"
 
 @implementation Input
 
@@ -21,16 +16,28 @@
     self = [super init];
     if (self) {
         _editLine = el_init("", stdin, stdout, stderr);
-
+        el_set(_editLine, EL_PROMPT, &prompt);
     }
     return self;
+}
+
+char * prompt(EditLine *e) {
+    return "cline > ";
 }
 
 -(NSString *)read
 {
     int count;
     const char* line = el_gets(_editLine, &count);
-    return [NSString stringWithCString:line encoding:NSUTF8StringEncoding];
+    
+    NSString *result;
+    if (line) {
+        result = [NSString stringWithCString:line encoding:NSUTF8StringEncoding];
+    } else {
+        return result = @"";
+    }
+    
+    return [result stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
 }
 
 @end

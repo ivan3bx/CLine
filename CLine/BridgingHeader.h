@@ -10,6 +10,6 @@
 #define CLine_BridgingHeader_h
 #import "NXOAuth2.h"
 #import "GCDWebServer.h"
-#import "Input.m"
+#import "Input.h"
 
 #endif

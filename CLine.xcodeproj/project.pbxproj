@@ -26,6 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2C0F635E1A26F3E5009565DC /* Input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
 		2C272C641A24368E00EAFD82 /* Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Input.m; sourceTree = "<group>"; };
 		2C88E9771A22174C000D1D9A /* authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authentication.swift; sourceTree = "<group>"; };
 		2CF7D2F11A22009E00A11C21 /* CLine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CLine; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,9 +82,10 @@
 			children = (
 				2CF7D2FB1A22099700A11C21 /* BridgingHeader.h */,
 				2CF7D2FC1A220B2300A11C21 /* clientConfig.json */,
-				2CF7D2F41A22009E00A11C21 /* main.swift */,
 				2C88E9771A22174C000D1D9A /* authentication.swift */,
+				2CF7D2F41A22009E00A11C21 /* main.swift */,
 				2C272C641A24368E00EAFD82 /* Input.m */,
+				2C0F635E1A26F3E5009565DC /* Input.h */,
 			);
 			path = CLine;
 			sourceTree = "<group>";
