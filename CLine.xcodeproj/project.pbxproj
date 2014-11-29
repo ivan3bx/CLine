@@ -10,6 +10,8 @@
 		0756EB97A97EE935DF0E5315 /* libPods-CLine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4BB9EF28CB8A9EDE79EE1F /* libPods-CLine.a */; };
 		2C272C651A24368E00EAFD82 /* Input.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C272C641A24368E00EAFD82 /* Input.m */; };
 		2C88E9781A22174C000D1D9A /* authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C88E9771A22174C000D1D9A /* authentication.swift */; };
+		2CD48D121A29688B00A78E5F /* resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D111A29688B00A78E5F /* resources.swift */; };
+		2CD48D141A29BE1100A78E5F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D131A29BE1100A78E5F /* User.swift */; };
 		2CF7D2F51A22009E00A11C21 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7D2F41A22009E00A11C21 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		2C0F635E1A26F3E5009565DC /* Input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
 		2C272C641A24368E00EAFD82 /* Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Input.m; sourceTree = "<group>"; };
 		2C88E9771A22174C000D1D9A /* authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = authentication.swift; sourceTree = "<group>"; };
+		2CD48D111A29688B00A78E5F /* resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resources.swift; sourceTree = "<group>"; };
+		2CD48D131A29BE1100A78E5F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2CF7D2F11A22009E00A11C21 /* CLine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CLine; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF7D2F41A22009E00A11C21 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		2CF7D2FB1A22099700A11C21 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				2CF7D2FC1A220B2300A11C21 /* clientConfig.json */,
 				2C88E9771A22174C000D1D9A /* authentication.swift */,
 				2CF7D2F41A22009E00A11C21 /* main.swift */,
+				2CD48D111A29688B00A78E5F /* resources.swift */,
+				2CD48D131A29BE1100A78E5F /* User.swift */,
 				2C272C641A24368E00EAFD82 /* Input.m */,
 				2C0F635E1A26F3E5009565DC /* Input.h */,
 			);
@@ -190,7 +196,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C272C651A24368E00EAFD82 /* Input.m in Sources */,
+				2CD48D121A29688B00A78E5F /* resources.swift in Sources */,
 				2CF7D2F51A22009E00A11C21 /* main.swift in Sources */,
+				2CD48D141A29BE1100A78E5F /* User.swift in Sources */,
 				2C88E9781A22174C000D1D9A /* authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

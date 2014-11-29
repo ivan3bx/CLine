@@ -11,13 +11,10 @@
 #ifndef CLine_Input_h
 #define CLine_Input_h
 
-@interface Input : NSObject {
-    EditLine* _editLine;
-    const char* _prompt;
-}
+@interface Input : NSObject
 
 -(instancetype)init;
--(NSString *)read;
+-(NSArray *)read;
 
 @end
 

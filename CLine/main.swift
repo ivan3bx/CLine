@@ -9,10 +9,14 @@
 import Foundation
 
 struct RunState {
-    static var isRunning: Bool = true
+    static var isRunning:           Bool = true
+    static var isWaitingForNetwork: Bool = false
 }
 
 class Main {
+    let runLoop = NSRunLoop.currentRunLoop()
+
+    let prompt: Input = Input()
     var auth: Authentication
     
     init() {
@@ -26,27 +30,39 @@ class Main {
             auth.authenticate()
         }
         
-        let prompt: Input = Input()
-        
-        var line: String = prompt.read()
-        while (!line.isEmpty) {
-            processCommand(line)
-            line = prompt.read()
+        while (RunState.isRunning && runLoopOnce()) {
+            if (!RunState.isWaitingForNetwork) {
+                /* No network requests active so get a command */
+                blockThreadForInput()
+            }
         }
+
         
         // No more input
         println("\nExiting.")
         RunState.isRunning = false
     }
     
-    func processCommand(line: String) {
-        println("I was given: \(line)")
+    func runLoopOnce() -> Bool {
+        print(".")
+        return runLoop.runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: 2.0))
+    }
+    
+    /*
+    ** Delegate and process a command
+    */
+    func processCommand(line: NSArray) {
+        User.currentUser().load()
+        Resources().load()
+    }
+    
+    /*
+    ** blocking call to accept input
+    */
+    func blockThreadForInput() {
+        var line = prompt.read()
+        processCommand(line)
     }
 }
 
-let runLoop = NSRunLoop.currentRunLoop()
 Main().run()
-
-while (RunState.isRunning && runLoop.runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: 2))) {
-    println(".")
-}

@@ -46,11 +46,18 @@ class Authentication {
                     // Authorization!
                     println("Registered.  Token expires at: \(self.account?.accessToken.expiresAt)")
                 }
+
+                /* Signal that we're done with the network after this run loop */
+                RunState.isWaitingForNetwork = false
         }
         
         center.addObserverForName(NXOAuth2AccountStoreDidFailToRequestAccessNotification,
             object: NXOAuth2AccountStore.sharedStore(), queue: nil) { notification in
                 println("Notified of failed request")
+
+                /* Signal that we're done with the network after this run loop */
+                RunState.isWaitingForNetwork = false
+
         }
 
         NXOAuth2AccountStore.sharedStore().setClientID(clientId,
@@ -65,6 +72,10 @@ class Authentication {
     }
     
     func authenticate() {
+
+        /* Signal that we'll be waiting for network after this run loop */
+        RunState.isWaitingForNetwork = true
+        
         let webServer   = startWebServer()
         NXOAuth2AccountStore.sharedStore().requestAccessToAccountWithType("Calendar")
     }
