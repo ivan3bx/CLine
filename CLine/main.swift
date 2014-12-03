@@ -20,9 +20,14 @@ class Main {
     var auth: Authentication
     
     init() {
-        let data: NSData! = NSData(contentsOfFile: "/Users/ivan/projects/CLine/CLine/clientConfig.json")
-        let dict: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil)!
-        auth = Authentication(config: dict["installed"] as NSDictionary)
+        if let data = NSData(contentsOfFile: "/Users/ivan/projects/CLine/CLine/clientConfig.json") {
+            let dict: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil)!
+            auth = Authentication(config: dict["installed"] as NSDictionary)
+        } else {
+            let stderr = NSFileHandle.fileHandleWithStandardError()
+            stderr.writeData("ERROR: Unable to locate clientConfig.json\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+            exit(1)
+        }
     }
     
     func run() {
